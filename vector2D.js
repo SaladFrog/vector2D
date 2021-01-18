@@ -1,5 +1,4 @@
 class Vector {
-
   constructor(x, y) {
     this.x = x || 0;
     this.y = y || 0;
@@ -9,23 +8,23 @@ class Vector {
     return new Vector(this.x, this.y);
   }
 
-  add(x, y) {
-    this.x += x.x || 0;
-    this.y += x.y || 0;
+  add(v) {
+    this.x += v.x || 0;
+    this.y += v.y || 0;
     return this;
   }
 
-  sub(x, y) {
-    this.x -= x.x || 0;
-    this.y -= x.y || 0;
+  sub(v) {
+    this.x -= v.x || 0;
+    this.y -= v.y || 0;
     return this;
   }
 
   mult(x, y) {
     const vectorComponents = [...arguments];
     if (
-      vectorComponents.every(element => Number.isFinite(element)) &&
-      vectorComponents.every(element => typeof element === 'number')
+      vectorComponents.every((element) => Number.isFinite(element)) &&
+      vectorComponents.every((element) => typeof element === "number")
     ) {
       if (arguments.length === 1) {
         this.x *= x;
@@ -36,16 +35,14 @@ class Vector {
         this.y *= y;
       }
     } else {
-      console.warn(
-        'hmmm'
-      );
+      console.warn("hmmm");
     }
     return this;
   }
 
-  div(x, y) {
-    this.x /= x.x || 0;
-    this.y /= x.y || 0;
+  div(v) {
+    this.x /= v.x || 0;
+    this.y /= v.y || 0;
     return this;
   }
 
@@ -59,16 +56,8 @@ class Vector {
     return x * x + y * y;
   }
 
-  dot(x, y) {
-    return this.dot(x.x,x.y);
-    //return this.x * (x || 0) + this.y * (y || 0);
-  }
-
   dist(v) {
-    return v
-      .copy()
-      .sub(this)
-      .mag();
+    return v.copy().sub(this).mag();
   }
 
   normalize() {
@@ -80,8 +69,7 @@ class Vector {
   limit(max) {
     const mSq = this.magSq();
     if (mSq > max * max) {
-      this.div(Math.sqrt(mSq))
-        .mult(max);
+      this.div(Math.sqrt(mSq)).mult(max);
     }
     return this;
   }
@@ -103,19 +91,70 @@ class Vector {
     return this;
   }
 
-  //angleBetween(v) {}
+  dot(v) {
+    return this.x * (v.x || 0) + this.y * (v.y || 0);
+  }
 
+  angleBetween(v) {
+    const dotmagmag = this.dot(v) / (this.mag() * v.mag());
+
+    let angle;
+    angle = Math.acos(Math.min(1, Math.max(-1, dotmagmag)));
+    angle = angle * Math.sign(this.cross(v).z || 1);
+    // if (this.p5) {
+    //   angle = this.p5._fromRadians(angle);
+    // }
+    return angle;
+  }
+
+  cross(v) {
+    const x = this.y * 0 - 0 * v.y;
+    const y = 0 * v.x - this.x * 0;
+    // const z = this.x * v.y - this.y * v.x;
+
+    return new Vector(x, y);
+  }
 }
+// Static div
+// let v1 = new Vector(9, 4);
+// let v2 = new Vector(3, 2);
+// let v = v1.div(v2);
+// console.log(v);
+
+// Static dot
+// let v1 = new Vector(1, 2);
+// let v2 = new Vector(3, 4);
+// let v = v1.dot(v2);
+// console.log(v);
+
+// Static angleBetween
+// let v1 = new Vector(1, 0);
+// let v2 = new Vector(0, 1);
+// let angle = v1.angleBetween(v2);
+// console.log(angle);
+
+// Static add
+// let v1 = new Vector(4, 5);
+// let v2 = new Vector(1, 1);
+// v1.add(v2);
+// console.log(v1);
+
+// Static sub
+// let v1 = new Vector(4, 5);
+// let v2 = new Vector(1, 1);
+// v1.sub(v2);
+// console.log(v1);
+
+// Static angleBetween
+// let v1 = new Vector(1, 0);
+// let v2 = new Vector(0, 1);
+// let angle = v1.angleBetween(v2);
+// console.log(angle);
 
 // Static normalize
 //let v = new Vector(20, 10);
 //v.normalize();
 //console.log(v);
-
-// Static dot
-let v1 = new Vector(1, 2);
-let v2 = new Vector(3, 4);
-console.log(v1.dot(v2));
 
 // Static setMag
 //let v = new Vector(10, 20);
