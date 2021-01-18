@@ -75,7 +75,7 @@ class Vector {
   limit(max) {
     const mSq = this.magSq();
     if (mSq > max * max) {
-      this.div(Math.sqrt(mSq)) //normalize it
+      this.div(Math.sqrt(mSq))
         .mult(max);
     }
     return this;
