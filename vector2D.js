@@ -97,24 +97,20 @@ class Vector {
 
   angleBetween(v) {
     const dotmagmag = this.dot(v) / (this.mag() * v.mag());
-
     let angle;
     angle = Math.acos(Math.min(1, Math.max(-1, dotmagmag)));
     angle = angle * Math.sign(this.cross(v).z || 1);
-    // if (this.p5) {
-    //   angle = this.p5._fromRadians(angle);
-    // }
     return angle;
   }
 
   cross(v) {
     const x = this.y * 0 - 0 * v.y;
     const y = 0 * v.x - this.x * 0;
-    // const z = this.x * v.y - this.y * v.x;
-
     return new Vector(x, y);
   }
+
 }
+
 // Static div
 // let v1 = new Vector(9, 4);
 // let v2 = new Vector(3, 2);
