@@ -4,6 +4,12 @@ class Vector {
   this.y = y || 0;
   }
   
+  /* 
+  * mult()
+  * let v1 = new Vector(1,1);
+  * let v2 = new Vector(1,2);
+  * console.log(v2.mult(v2))
+  */
   mult(x, y) {
     if(x instanceof Vector) {
     console.log("instanceof")
@@ -29,14 +35,4 @@ class Vector {
   return this;
   }
 }
-
-let v1 = new Vector(1,1);
-let v2 = new Vector(1,2);
-//let v = {x: 1, y: 5};
-//let num = 5;
-
-console.log(v2.mult(v2))
-
-
-
-
+export default Vector;
