@@ -6,8 +6,8 @@ class Vector {
   
   /* 
   * mult()
-  * let v1 = new Vector(1,1);
-  * let v2 = new Vector(1,2);
+  * let v1 = new Vector(2,4);
+  * let v2 = new Vector(2,2);
   * console.log(v2.mult(v2))
   */
   mult(x, y) {
