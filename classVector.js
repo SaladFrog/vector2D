@@ -1,3 +1,5 @@
+//https://evanw.github.io/lightgl.js/docs/vector.html
+
 class Vector {
   constructor(x, y) {
   this.x = x || 0;
