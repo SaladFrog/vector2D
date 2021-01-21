@@ -1,30 +1,11 @@
-class Vec {
-  constructor(x, y) {
-    this.x = x || 0;
-    this.y = y || 0;
-  }
-
-  copy() {
-    return new Vec(this.x, this.y);
-  }
-
-  add(v) {
-    this.x += v.x || 0;
-    this.y += v.y || 0;
-    return this;
-  }
-  sub(v) {
-    this.x -= v.x || 0;
-    this.y -= v.y || 0;
-    return this;
-  }
-  mult(v) {
-    this.x *= v.x || 0;
-    this.y *= v.y || 0;
-    return this;
-  }
-
-  dot(v) {
-    return this.x * v.x + this.y * v.y;
-  }
+function Vector(x, y, z) {
+  this.x = x || 0;
+  this.y = y || 0;
+  this.z = z || 0;
 }
+
+Vector.prototype = {
+  copy: function () {
+    return new Vector(this.x, this.y, this.z);
+  },
+};
