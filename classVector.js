@@ -7,9 +7,9 @@ class Vector {
   
   /* 
   * mult()
-  * let v1 = new Vector(2,4);
-  * let v2 = new Vector(2,2);
-  * console.log(v1.mult(v2))
+  * let v1 = new Vector(2,4,6);
+  * let v2 = new Vector(2,2,2);
+  * console.log(v1.mult(v2)) // 4,8,12
   */
   mult(v) {
     if(v instanceof Vector) {
