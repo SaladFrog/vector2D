@@ -1,5 +1,3 @@
-//https://evanw.github.io/lightgl.js/docs/vector.html
-
 class Vector {
   constructor(x, y) {
   this.x = x || 0;
@@ -12,29 +10,17 @@ class Vector {
   * let v2 = new Vector(2,2);
   * console.log(v1.mult(v2))
   */
-  mult(x, y) {
+  mult(v) {
     if(x instanceof Vector) {
     console.log("instanceof")
-    this.x *= x.x;
-    this.y *= x.y;
+    this.x *= v.x;
+    this.y *= v.y;
+    return this;
+  } else {
+    this.x *= v;
+    this.y *= v;
     return this;
   }  
-    
-  const Vcomp = [...arguments]
-  if(Vcomp.every(element => Number.isFinite(element))) {
-    console.log('isfinite')
-    if(arguments.length === 1) {
-      console.log("arg 1")
-       this.x *= x;
-       this.y *= x;
-    }
-    if(arguments.length === 2) {
-      console.log("arg 2")
-      this.x *= x;
-      this.y *= y;
-    }
-  }
-  return this;
   }
 }
 export default Vector;
