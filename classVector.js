@@ -11,8 +11,7 @@ class Vector {
   * console.log(v1.mult(v2))
   */
   mult(v) {
-    if(x instanceof Vector) {
-    console.log("instanceof")
+    if(v instanceof Vector) {
     this.x *= v.x;
     this.y *= v.y;
     return this;
@@ -23,4 +22,5 @@ class Vector {
   }  
   }
 }
+
 export default Vector;
