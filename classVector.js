@@ -15,11 +15,10 @@ class Vector {
     this.x *= v.x;
     this.y *= v.y;
     return this;
-  } else {
+  }
     this.x *= v;
     this.y *= v;
     return this;
-  }  
   }
 }
 
