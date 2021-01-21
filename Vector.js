@@ -11,7 +11,7 @@ class Vector {
    * console.log(v1.copy())
    */
   copy() {
-    return new Vector(this.x, this.y);
+    return new Vector(this.x, this.y, this.z);
   }
 
   /*
@@ -136,7 +136,7 @@ class Vector {
     if (x instanceof Vector) {
       return this.dot(x.x, x.y, x.z);
     }
-    return this.x * (x || 0) + this.y * (y || 0) + this.z(z || 0);
+    return this.x * (x || 0) + this.y * (y || 0) + this.z * (z || 0);
   }
 
   /*
